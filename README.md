@@ -4,5 +4,5 @@
 - Creación de componentes con Lazyload (carga peresoza)
   - Al momento de utilizar lazy de React es necesario hacer **export default** del componente a utilizar
   - Nested: rutas anidadas
-- Patron de diseño: una forma de hacer algo
-  - Component Pattern: componentes dentro de otros
+- Patrones de diseño (una forma de hacer algo)
+  - **Compound Component Pattern**: componentes dentro de otros (HOC), lo que se busca es tener un componente padre e internamente ir definiendo sus componentes hijos comunmente con una relación directa.
