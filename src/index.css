@@ -26,6 +26,15 @@ code {
   flex-direction: row;
 }
 
+.sub-nav {
+  list-style-type: none;
+  margin: 20px 0;
+}
+
+.sub-nav a {
+  color: #eee;
+}
+
 nav {
   background-color: #363a45;
   height: 100vh;
