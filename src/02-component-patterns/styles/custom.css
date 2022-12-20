@@ -19,3 +19,9 @@
 .custom-buttons button:hover {
   background-color: #eee;
 }
+
+.shopping-cart {
+  position: fixed;
+  top: 0;
+  right: 10px;
+}
