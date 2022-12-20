@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 
 import { onChangeArgs, Product } from '../interfaces/interfaces';
 
@@ -14,15 +14,9 @@ export const useProduct = ({
   value = 0,
 }: useProductArgs) => {
   const [counter, setCounter] = useState(value);
-  // comprobar si el componente tiene definido el onChange
-  // el !! lo vuelve a true
-  const isControlled = useRef(!!onChange);
 
   // no permitir valores negativos
   const increaseBy = (value: number) => {
-    // con el ! le indicamos a TS que este punto onChange siempre tiene un valor y no es undefined
-    if (isControlled.current) return onChange!({ count: value, product });
-
     const newValue = Math.max(counter + value, 0);
     setCounter(newValue);
     // ejecutar el onChange solo en caso de ser diferente a null o undefined
