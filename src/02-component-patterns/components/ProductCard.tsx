@@ -19,13 +19,35 @@ export const ProductCard = ({
   style,
   onChange,
   value,
+  initialValues,
 }: ProductCardProps) => {
-  const { counter, increaseBy } = useProduct({ onChange, product, value });
+  const {
+    counter,
+    increaseBy,
+    maxCount,
+    isMaxCountReached,
+    reset,
+  } = useProduct({
+    onChange,
+    product,
+    value,
+    initialValues,
+  });
 
   return (
-    <Provider value={{ counter, increaseBy, product }}>
+    <Provider value={{ counter, increaseBy, product, maxCount }}>
       <div className={`${styles.productCard} ${className}`} style={style}>
-        {children}
+        {/* En este punto children es una función asi que hay que ejecutarla */}
+        {/* de lo contrario React no la podrá renderizar */}
+        {/* ahora que children es una función, se le pueden enviar argumentos */}
+        {children({
+          count: counter,
+          isMaxCountReached,
+          maxCount: initialValues?.maxCount,
+          product,
+          increaseBy,
+          reset,
+        })}
       </div>
     </Provider>
   );

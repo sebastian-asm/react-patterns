@@ -1,4 +1,4 @@
-import { ReactElement, CSSProperties } from 'react';
+import { CSSProperties } from 'react';
 
 import { Props as ProductButtonsProps } from '../components/ProductButtons';
 import { Props as ProductImageProps } from '../components/ProductImage';
@@ -6,11 +6,19 @@ import { Props as ProductTitleProps } from '../components/ProductTitle';
 
 export interface ProductCardProps {
   product: Product;
-  children?: ReactElement | Array<ReactElement>;
   className?: string;
   style?: CSSProperties;
-  onChange?: (args: onChangeArgs) => void;
   value?: number;
+  initialValues?: InitialValues;
+  // children?: ReactElement | Array<ReactElement>;
+  // ahora children es una funcion que devuelve un jsx
+  children: (args: ProductCardHandlers) => JSX.Element;
+  onChange?: (args: onChangeArgs) => void;
+}
+
+export interface InitialValues {
+  count?: number;
+  maxCount?: number;
 }
 
 export interface Product {
@@ -21,8 +29,9 @@ export interface Product {
 
 export interface ProductContextProps {
   counter: number;
-  increaseBy: (value: number) => void;
   product: Product;
+  maxCount?: number;
+  increaseBy: (value: number) => void;
 }
 
 export interface ProductCardPropsHOC {
@@ -30,9 +39,6 @@ export interface ProductCardPropsHOC {
   Title: (Props: ProductTitleProps) => JSX.Element;
   Image: (Props: ProductImageProps) => JSX.Element;
   Buttons: (Props: ProductButtonsProps) => JSX.Element;
-  // Title: ({ title }: { title?: string }) => JSX.Element;
-  // Image: ({ img }: { img?: string }) => JSX.Element;
-  // Buttons: ({ className }: { className?: string }) => JSX.Element;
 }
 
 export interface onChangeArgs {
@@ -42,4 +48,14 @@ export interface onChangeArgs {
 
 export interface ProductInCart extends Product {
   count: number;
+}
+
+// definir todo lo que el componente va a exponer
+export interface ProductCardHandlers {
+  count: number;
+  isMaxCountReached: boolean;
+  maxCount?: number;
+  product: Product;
+  increaseBy: (value: number) => void;
+  reset: () => void;
 }
