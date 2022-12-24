@@ -28,3 +28,13 @@ span,
 .has-error {
   border: 1px solid red;
 }
+
+.terms {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.terms input[type='checkbox'] {
+  margin-right: 5px;
+}
