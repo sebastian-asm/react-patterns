@@ -1,0 +1,70 @@
+[
+  {
+    "type": "text",
+    "name": "firstName",
+    "label": "Nombre",
+    "value": "",
+    "placeholder": "Ingrese su nombre",
+    "validations": [
+      {
+        "type": "required"
+      },
+      {
+        "type": "minLength",
+        "value": 5
+      }
+    ]
+  },
+  {
+    "type": "text",
+    "name": "lastName",
+    "label": "Apellido",
+    "value": "",
+    "placeholder": "Ingrese su apellido",
+    "validations": [
+      {
+        "type": "required"
+      }
+    ]
+  },
+  {
+    "type": "email",
+    "name": "email",
+    "label": "Email",
+    "value": "",
+    "placeholder": "Ingrese su email",
+    "validations": [
+      {
+        "type": "required"
+      },
+      {
+        "type": "email"
+      }
+    ]
+  },
+  {
+    "type": "select",
+    "name": "favoriteGame",
+    "label": "Juego favorito",
+    "value": "",
+    "validations": [
+      {
+        "type": "required"
+      }
+    ],
+    "options": [
+      {
+        "id": 1,
+        "label": "Pokemon"
+      },
+      {
+        "id": 2,
+        "label": "Super Mario 3"
+      },
+      {
+        "id": 3,
+        "label": "Bioshock"
+      }
+    ]
+  }
+]
